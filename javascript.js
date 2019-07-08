@@ -30,7 +30,7 @@ if (player.x == player.appleX && player.y == player.appleY) {
 }
 
 // Main Loop
-setInterval(function() {
+var main = setInterval(function() {
 	if (player.dir == "up") {
 		player.y -= 1;
 	} else if (player.dir == "down") {
@@ -43,6 +43,7 @@ setInterval(function() {
 	// Check if Game Over
 	if((player.pastX.indexOf(player.x)==player.pastY.indexOf(player.y) &&player.pastX.indexOf(player.x)!=-1)||player.x<0||player.y<0||player.x>500||player.y>500) {
 	dir="";
+		clearInterval(main);
 	}
 	// Clear Screen
 	c.clearRect(0,0,1000,1000);
