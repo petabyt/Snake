@@ -58,7 +58,7 @@ setInterval(function() {
 		player.pastY.shift();
 	}
 	// Check if apple is eaten
-	if(Math.sqrt(((player.x-player.appleX)*(player.x-player.appleX))+((player.y-player.appleY)*(player.x-player.appleX)))<6) {
+	if(Math.sqrt(((player.x-player.appleX)*(player.x-player.appleX))+((player.y-player.appleY)*(player.y-player.appleY)))<6) {
 		player.length+=6;
 		apple();
 	}
