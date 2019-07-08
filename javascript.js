@@ -42,7 +42,9 @@ var main = setInterval(function() {
 	}
 	// Check if Game Over
 	if((player.pastX.indexOf(player.x)==player.pastY.indexOf(player.y) &&player.pastX.indexOf(player.x)!=-1)||player.x<0||player.y<0||player.x>500||player.y>500) {
-	dir="";
+		c.fillText("Game Over",50,200);
+		c.fillText("Score: "+((player.length-10)/6),50,270)
+		dir="";
 		clearInterval(main);
 	}
 	// Clear Screen
