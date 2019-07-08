@@ -17,6 +17,11 @@ var player = {
 // Make apple on load
 apple();
 
+function renderApple() {
+	c.fillStyle = "red";
+	c.fillRect(player.appleX,player.appleY,6,6);
+}
+
 // Detect if snake is touching apple
 if (player.x == player.appleX && player.y == player.appleY) {
 	apple();
@@ -57,6 +62,7 @@ setInterval(function() {
 		player.length+=6;
 		apple();
 	}
+	renderApple();
 },20);
 
 // Detect Keys
@@ -79,3 +85,4 @@ function apple() {
 	player.appleY = Math.floor(Math.random() * 394) + 6;
 	c.fillRect(player.appleX,player.appleY,6,6);
 }
+
