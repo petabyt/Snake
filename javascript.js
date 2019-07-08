@@ -8,7 +8,10 @@ var player = {
 	y:200,
 	appleX:0,
 	appleY:0,
-	points:0
+	points:0,
+	pastX:[200],
+	pastY:[200],
+	length:10
 }
 
 // Make apple on load
@@ -32,9 +35,28 @@ setInterval(function() {
 	} else if (player.dir == "left") {
 		player.x -= 1;
 	}
-
+	// Clear Screen
+	c.clearRect(0,0,1000,1000);
 	c.fillStyle = "green";
+	// Render Snake
+	for(i in player.pastX) {
+	c.fillRect(player.pastX[i] - 1,player.pastY[i] - 1,3,3);
+	}
+	// Render Current Position
 	c.fillRect(player.x - 1,player.y - 1,3,3);
+	// Save Current Position
+	player.pastX.push(player.x);
+	player.pastY.push(player.y);
+	// Keep Positions Saved To Length;
+	if(player.pastX.length>player.length) {
+		player.pastX.shift();
+		player.pastY.shift();
+	}
+	// Check if apple is eaten
+	if(Math.sqrt(((player.x-player.appleX)*(player.x-player.appleX))+((player.y-player.appleY)*(player.x-player.appleX)))<6) {
+		player.length+=6;
+		apple();
+	}
 },20);
 
 // Detect Keys
