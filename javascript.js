@@ -40,6 +40,10 @@ setInterval(function() {
 	} else if (player.dir == "left") {
 		player.x -= 1;
 	}
+	// Check if Game Over
+	if((player.pastX.indexOf(player.x)==player.pastY.indexOf(player.y) &&player.pastX.indexOf(player.x)!=-1)||player.x<0||player.y<0||player.x>500||player.y>500) {
+	dir="";
+	}
 	// Clear Screen
 	c.clearRect(0,0,1000,1000);
 	c.fillStyle = "green";
