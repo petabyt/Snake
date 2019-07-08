@@ -31,6 +31,7 @@ if (player.x == player.appleX && player.y == player.appleY) {
 
 // Main Loop
 var main = setInterval(function() {
+	c.font = "50px Arial";
 	if (player.dir == "up") {
 		player.y -= 1;
 	} else if (player.dir == "down") {
@@ -43,8 +44,9 @@ var main = setInterval(function() {
 	// Check if Game Over
 	if((player.pastX.indexOf(player.x)==player.pastY.indexOf(player.y) &&player.pastX.indexOf(player.x)!=-1)||player.x<0||player.y<0||player.x>500||player.y>500) {
 		c.fillText("Game Over",50,200);
-		c.fillText("Score: "+((player.length-10)/6),50,270)
+		c.fillText("Score: "+((player.length-10)/6),50,270);
 		dir="";
+		setInterval(gameOver,20);
 		clearInterval(main);
 	}
 	// Clear Screen
@@ -92,4 +94,7 @@ function apple() {
 	player.appleY = Math.floor(Math.random() * 394) + 6;
 	c.fillRect(player.appleX,player.appleY,6,6);
 }
-
+function gameOver() {
+c.fillText("Game Over",50,200);
+c.fillText("Score: "+((player.length-10)/6),50,270);
+}
