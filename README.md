@@ -1,2 +1,2 @@
 # Snake
-I lost inspiration to finish this.
+This version is actually finished.
